@@ -4,67 +4,77 @@
 #include <vector>
 #include "Flowers.h"
 
-class Flowersshop
+const int TYPES_VALUE = 5;
+const int RANDOM_CHARACTERISTIC = 5;
+const int RANDOM_PRICE = 500;
+const int RANDOM_COLOR = 5;
+const int RANDOM_VALUE = 50;
+
+class FlowersShop
 {
 private:
-    vector<Flowers> v;
+    vector<Flowers> random_flowers;
 
 public:
-    Flowersshop();
-    string name[5] = { "Lilies","Roses","Tulips","Daisies","Hydrangeas" };
-    string color[5] = { "Red", "Yellow","Blue", "Pink","Orange" };
-    Flowersshop(int value)
+    FlowersShop();
+    string name[TYPES_VALUE] = { "Lilies","Roses","Tulips","Daisies","Hydrangeas" };
+    string color[YPES_VALUE] = { "Red", "Yellow","Blue", "Pink","Orange" };
+    FlowersShop(int all_flowers_in_shop)
     {
-        for (int i = 0; i < value; i++)
+        for (int i = 0; i < all_flowers_in_shop; i++)
         {
-            addflowers();
+            addFlowers();
         }
     }
 
     void data()
     {
-        for (int i = 0; i < v.size(); i++)
+        for (int i = 0; i < random_flowers.size(); i++)
         {
-            cout << v[i].getname() << " " << v[i].getcolor() << " " << v[i].getsize() << " " << v[i].getprice() << endl;
+            cout << random_flowers[i].getname() << " " << random_flowers[i].getcolor() << " " << random_flowers[i].getsize() << " " << random_flowers[i].getprice() << endl;
         }
         cout << "----------------------------------" << endl;
     }
 
-     void sortprice();
-     void addflowers();
-     void removeflowers(int index);
-     vector <Flowers> getassortment() { return v; }
+     void sortPrice();
+     void addFlowers();
+     void removeFlowers(int index);
+     vector <Flowers> getassortment()
+     { 
+         return random_flowers;
+     }
 
-    ~Flowersshop() {}
+    ~FlowersShop() {}
 };
 
  
-void Flowersshop::sortprice() {
-    int value = v.size();
+void FlowersShop::sortPrice() {
+    int  all_flowers_in_shop = random_flowers.size();
     cout << "Sort by price:" << endl;
-    for (int i = 0; i < value - 1; i++)
+    for (int i = 0; i < all_flowers_in_shop; i++)
     {
-        for (int k = 0; k < value - i - 1; k++)
+        for (int k = 0; k < all_flowers_in_shop - i; k++)
         {
-            if (v[k].getprice() > v[k + 1].getprice())
+            if (random_flowers[k].getprice() > random_flowers[k].getprice())
             {
-                std::swap(v[k], v[k + 1]);
+                std::swap(random_flowers[k], random_flowers[k]);
             }
         }
     }
-    for (int i=value-1; i >= 0; i--)
+    for (int i = all_flowers_in_shop; i >= 0; i--)
     {
-        cout << "Name=" << v[i].getname() << "| Price: " << v[i].getprice() << endl;
+        cout << "Name=" << random_flowers[i].getname() << "| Price: " << random_flowers[i].getprice() << endl;
     }
     cout << "----------------------------------" << endl;
 }
 
-void Flowersshop::addflowers()
+void FlowersShop::addFlowers()
 {
-    Flowers flower(name[rand() % 5], rand() % 5, rand() % 50 + 10, rand() % 300 + 100, rand() % 5, rand() % 5, color[rand() % 5]);
-    v.push_back(flower);
+    Flowers flower(name[rand() % RANDOM_CHARACTERISTIC], rand() % RANDOM_CHARACTERISTIC, rand() % RANDOM_VALUE, rand() % RANDOM_PRICE, rand() % RANDOM_CHARACTERISTIC, rand() % RANDOM_CHARACTERISTIC, color[rand() % RANDOM_COLOR]);
+    random_flowers.push_back(flower);
 }
-void Flowersshop::removeflowers(int index)
+
+void FlowersShop::removeFlowers(int index)
 {
-    v.erase(v.begin() + index);
- }
+    random_flowers.erase(random_flowers.begin() + index);
+}
