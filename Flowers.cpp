@@ -6,31 +6,31 @@ Flowers();
 Flowers(string name, int height, int size, int price, int quantity, int deliveryRate, string color);
 ~Flowers() {}
 
-string getname()
+string getName()
 {
     return name;
 }
-int getheight()
+int getHeight()
 {
     return height;
 }
-int getsize()
+int getSize()
 {
     return size;
 }
-int getprice()
+int getPrice()
 {
     return price;
 }
-int getquantity()
+int getQuantity()
 {
     return quantity;
 }
-int getdeliveryRate()
+int getDeliveryRate()
 {
     return deliveryRate;
 }
-string getcolor()
+string getColor()
 {
     return color;
 }

@@ -1,10 +1,9 @@
 #include <iostream>
 #include <string>
-#include "Flowers.h"
-#include "Flowersshop.h"
 #include "Bouquet.h"
 
 const int RANDOM_FLOWERS_VALUE = 10;
+const int FLOWERS_VALUE_IN_BOUQUET = 15;
 
 int main() {
 
@@ -13,7 +12,7 @@ int main() {
 	shop.sortPrice();
 	shop.removeFlowers(0);
 	shop.data();
-	Bouquet bouquet(15, shop.getassortment());
+	Bouquet bouquet(FLOWERS_VALUE_IN_BOUQUET, shop.getAssortment());
 	bouquet.dataBouquet();
 
 }

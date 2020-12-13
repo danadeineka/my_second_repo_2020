@@ -20,7 +20,7 @@ public:
         {
             int index = rand() % assortment.size();
             bouquet.push_back(assortment[index]);
-            bouquet_price += assortment[index].getprice();
+            bouquet_price += assortment[index].getPrice();
         }
     }
     ~Bouquet() {}
@@ -29,10 +29,9 @@ public:
     {
         for (int i = 0; i < bouquet.size(); i++)
         {
-            cout << bouquet[i].getname() << " " << bouquet[i].getcolor() << " " << bouquet[i].getsize() << " " << bouquet[i].getprice() << endl;
+            cout << bouquet[i].getName() << " " << bouquet[i].getColor() << " " << bouquet[i].getSize() << " " << bouquet[i].getPrice() << endl;
         }
         cout << "Price: " << bouquet_price << endl;
     }
-    ~Bouquet() {}
 };
 
